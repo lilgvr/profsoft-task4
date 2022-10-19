@@ -1,0 +1,33 @@
+$background-color: #252422;
+$primary-color: #CCC5B9;
+$secondary-color: #403D39;
+$accent-color: #EB5E28;
+$white: #FFFCF2;
+
+body {
+	margin: 0;
+	font-family: -apple-system, sans-serif;
+	background-color: $background-color;
+	color: $white;
+}
+
+@mixin Button {
+	$wh: 40px;
+	width: $wh;
+	height: $wh;
+
+	background-color: $primary-color;
+	border-radius: 7px;
+	border: 2px solid $secondary-color;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: background-color 0.1s linear, border-color .1s linear;
+	transition-delay: 50ms;
+
+	&:hover {
+		border-color: $accent-color;
+	}
+}

@@ -1,9 +1,11 @@
-import { useGetTodosQuery } from "./store/todos/todos.api";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header";
+import { useActions } from "./hooks";
 import { Dashboard } from "./pages/Dashboard";
 import { Todo } from "./pages/Todo";
-import { useActions } from "./hooks";
-import { useEffect } from "react";
+import { useGetTodosQuery } from "./store/todos/todos.api";
+import styles from "./assets/styles/App.module.scss";
 
 
 export const App = () => {
@@ -12,14 +14,15 @@ export const App = () => {
 
     useEffect(() => {
         setTodos(todos)
-    }, [todos])
+    }, [setTodos, todos])
 
     return (
-        <>
+        <div className={ styles.container }>
+            <Header/>
             <Routes>
                 <Route path="/" element={ <Dashboard/> }/>
                 <Route path="/todo/:id" element={ <Todo/> }/>
             </Routes>
-        </>
+        </div>
     );
 }

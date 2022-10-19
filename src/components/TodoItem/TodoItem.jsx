@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
-import styles from './TodoItem.module.scss'
+import styles from "./TodoItem.module.scss";
 
 export const TodoItem = ({ id, title }) => {
     return (
-        <div>
-            <p className={ styles.title }>
+        <div
+            className={ styles.todoItem }
+            title={ `Todo ${ id }` }
+        >
+            <p>
                 { title }
             </p>
-            <Link to={ `todo/${ id }` }>
-                go to todo
-            </Link>
         </div>
     )
 }

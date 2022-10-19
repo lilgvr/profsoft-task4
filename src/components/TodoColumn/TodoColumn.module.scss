@@ -1,0 +1,36 @@
+@use "../../assets/styles/index" as v;
+
+.todoColumn {
+	background-color: v.$primary-color;
+	padding: 0 20px;
+	border-radius: 7px;
+	margin-top: 40px;
+	width: 20%;
+
+	&Header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 0;
+
+		h3 {
+			color: v.$background-color;
+		}
+	}
+
+	&Content {
+		overflow-y: auto;
+		scroll-behavior: smooth;
+		min-height: 20vh;
+		max-height: 90%;
+
+		&::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: v.$background-color;
+			border-radius: 7px;
+		}
+	}
+}

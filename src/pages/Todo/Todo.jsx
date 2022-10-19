@@ -6,6 +6,7 @@ export const Todo = () => {
     const { id } = useParams()
     const { todos } = useSelector(state => state.todos)
     const [todo, setTodo] = useState()
+    const [isEditing, setIsEditing] = useState();
 
     useEffect(() => {
         if (todos && todos.length) {
