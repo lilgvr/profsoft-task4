@@ -14,7 +14,7 @@ const todosSlice = createSlice({
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
         removeTodo: (state, action) => {
-            state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+            state.todos = state.todos.filter((todo) => todo.id !== +action.payload);
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
         addTodo: (state, action) => {
@@ -22,7 +22,9 @@ const todosSlice = createSlice({
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
         updateTodo: (state, action) => {
-            state.todos = state.todos.filter(todo => todo.id === action.payload.id).push(action.payload);
+            const index = state.todos.findIndex(todo => todo.id === +action.payload.id);
+            state.todos = state.todos.filter(todo => todo.id !== +action.payload.id);
+            state.todos.splice(index, 0, action.payload);
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
     },

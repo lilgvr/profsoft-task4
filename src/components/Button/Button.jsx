@@ -14,27 +14,27 @@ export const Button = ({ imageName, onClick, type, style }) => {
         });
     }, [imageName]);
 
-    console.log(maskStyle)
-
     return (
         <div
             className={ styles.button }
             onClick={ onClick }
             style={ style }
         >
-            {
-                type === "LINK" &&
-                <Link
-                    to="/"
-                    style={ maskStyle }
-                />
-            }
-            {
-                type === "DEFAULT" &&
-                <div
-                    style={ maskStyle }
-                ></div>
-            }
+            <React.Suspense fallback={ null }>
+                {
+                    type === "LINK" &&
+                    <Link
+                        to="/"
+                        style={ maskStyle }
+                    />
+                }
+                {
+                    type === "DEFAULT" &&
+                    <div
+                        style={ maskStyle }
+                    ></div>
+                }
+            </React.Suspense>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from "react-redux";
 import { useActions } from "../../hooks";
 import { Button } from "../Button";
@@ -13,6 +13,7 @@ export const TodoColumn = ({ status, children }) => {
 
     const handleAddButtonClick = () => {
         setIsAdding(!isAdding);
+        inputRef.current.value = '';
     }
 
     const handleSubmitClick = () => {
@@ -28,6 +29,10 @@ export const TodoColumn = ({ status, children }) => {
 
         addTodo(payload);
     }
+
+    useEffect(() => {
+        if (isAdding) inputRef.current.focus();
+    }, [isAdding]);
 
     return (
         <div className={ styles.todoColumn }>
@@ -69,5 +74,3 @@ export const TodoColumn = ({ status, children }) => {
         </div>
     );
 }
-
-export default TodoColumn;

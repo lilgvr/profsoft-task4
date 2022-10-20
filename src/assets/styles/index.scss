@@ -11,31 +11,31 @@ body {
 	color: $white;
 }
 
-@mixin Button {
-	$wh: 40px;
-	width: $wh;
-	height: $wh;
+@mixin customInput {
+	font-size: 14pt;
+	border: 2px solid $background-color;
+	border-radius: 5px;
 
-	max-height: 40px;
+	transition: border-color .1s linear;
 
-	* {
-		mask-repeat: no-repeat;
+	&:focus {
+		outline: none;
+		border-color: $accent-color;
 	}
+}
 
+@mixin customButton {
 	background-color: $primary-color;
-	border-radius: 7px;
-	border: 2px solid $secondary-color;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	transition: background-color 0.1s linear, border-color .1s linear;
-	transition-delay: 50ms;
+	font-size: 14pt;
+	border: 2px solid $background-color;
+	border-radius: 5px;
+	padding: 2px;
+	transition: border-color .1s linear, color .1s linear, background-color .1s linear;
 
 	&:hover {
-		border-color: $accent-color;
-		background-color: $background-color;
 		cursor: pointer;
+		background-color: $background-color;
+		color: $accent-color;
+		border-color: $accent-color;
 	}
 }

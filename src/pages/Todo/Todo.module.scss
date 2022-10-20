@@ -15,14 +15,20 @@
 	&Header {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
+		align-items: center;
+		width: 90%;
 
 		h3 {
 			font-weight: 700;
 			font-size: 24pt;
-			margin: 0 0 10px 60px;
+			/*margin: 0 0 10px 60px;*/
 			align-self: flex-start;
 			color: v.$background-color;
+		}
+
+		div {
+			display: flex;
+			gap: 20px;
 		}
 	}
 
@@ -32,10 +38,57 @@
 		height: 90%;
 		border-radius: 7px;
 
+		& > div {
+			display: flex;
+
+			div {
+				margin-top: 30px;
+			}
+		}
+
 		p {
 			font-size: 18pt;
-			margin: 20px 0 0 30px;
+			margin: 30px 0 0 30px;
 			font-weight: 600;
+			color: v.$background-color;
+
+			&:last-of-type {
+				display: flex;
+			}
+		}
+
+		input {
+			@include v.customInput;
+			margin-left: 20px;
+		}
+
+		button {
+			@include v.customButton;
+			margin-left: 20px;
+		}
+
+		select {
+			background-color: v.$white;
+			font-size: 16pt;
+			color: v.$background-color;
+			border: 2px solid v.$background-color;
+			border-radius: 3px;
+
+			transition: border-color .1s linear;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:focus {
+				outline: none;
+				border-color: v.$accent-color;
+			}
+
+			option {
+				background-color: v.$background-color;
+				color: v.$accent-color;
+			}
 		}
 	}
 }
