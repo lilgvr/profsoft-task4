@@ -27,6 +27,7 @@ export const Todo = () => {
         if (isEditing) {
             inputRef.current?.focus();
             inputRef.current.value = currentTodo?.title;
+            selectRef.current.value = currentTodo?.status;
         }
     }, [currentTodo, findCurrentTodo, isEditing]);
 

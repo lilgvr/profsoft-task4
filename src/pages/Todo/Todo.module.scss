@@ -21,7 +21,6 @@
 		h3 {
 			font-weight: 700;
 			font-size: 24pt;
-			/*margin: 0 0 10px 60px;*/
 			align-self: flex-start;
 			color: v.$background-color;
 		}
@@ -35,7 +34,7 @@
 	&Content {
 		background-color: v.$white;
 		width: 90%;
-		height: 90%;
+		height: 80%;
 		border-radius: 7px;
 
 		& > div {
