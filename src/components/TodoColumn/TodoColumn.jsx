@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useSelector } from "react-redux";
 import { useActions } from "../../hooks";
-import { AddButton } from "./AddButton";
+import { Button } from "../Button";
 import styles from "./TodoColumn.module.scss";
 
-const TodoColumn = ({ status, children }) => {
+export const TodoColumn = ({ status, children }) => {
     const { todos } = useSelector(state => state.todos);
     const [isAdding, setIsAdding] = useState(false);
     const inputCtr = useRef(null);
@@ -36,7 +36,13 @@ const TodoColumn = ({ status, children }) => {
                     { status }
                 </h3>
 
-                <AddButton onClick={ handleAddButtonClick }/>
+                <Button
+                    imageName="plus"
+                    onClick={ handleAddButtonClick }
+                    type="DEFAULT"
+                >
+                    <div></div>
+                </Button>
             </div>
             <div
                 className={ isAdding ? styles.todoColumnInput : styles.todoColumnInputHidden }

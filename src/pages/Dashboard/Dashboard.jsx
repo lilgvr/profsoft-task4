@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
-import TodoColumn from "../../components/TodoColumn/TodoColumn";
+import { TodoColumn } from "../../components/TodoColumn";
 import { TodoItem } from "../../components/TodoItem";
 import { TODO_STATUS_TYPES as statuses } from "../../utils/constants";
 import styles from "./Dashboard.module.scss";

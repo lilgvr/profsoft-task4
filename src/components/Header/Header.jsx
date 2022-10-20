@@ -1,10 +1,14 @@
-import { HomeButton } from "./HomeButton";
+import React from "react";
+import { Button } from "../Button";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
     return (
         <header className={ styles.header }>
-            <HomeButton/>
+            <Button
+                imageName="home"
+                type="LINK"
+            />
             <h1>Kanban</h1>
             &nbsp;
         </header>
