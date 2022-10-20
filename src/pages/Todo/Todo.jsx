@@ -17,7 +17,6 @@ export const Todo = () => {
     const { id } = useParams();
 
     const findCurrentTodo = useCallback(() => {
-        console.log(todos)
         setCurrentTodo(todos?.find(todo => todo.id === +id));
     }, [id, todos])
 

@@ -26,7 +26,7 @@ export const TodoColumn = ({ status, children }) => {
         }
 
         inputRef.current.value = '';
-
+        inputRef.current.focus();
         addTodo(payload);
     }
 
