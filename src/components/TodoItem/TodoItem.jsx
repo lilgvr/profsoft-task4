@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { RemoveButton } from "./RemoveButton";
 import styles from "./TodoItem.module.scss";
 
 export const TodoItem = ({ id, title }) => {
@@ -6,9 +8,10 @@ export const TodoItem = ({ id, title }) => {
             className={ styles.todoItem }
             title={ `Todo ${ id }` }
         >
-            <p>
+            <Link to={ `todo/${ id }` }>
                 { title }
-            </p>
+            </Link>
+            <RemoveButton id={ id }/>
         </div>
     )
 }

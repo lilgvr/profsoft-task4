@@ -16,6 +16,12 @@ body {
 	width: $wh;
 	height: $wh;
 
+	max-height: 40px;
+
+	* {
+		mask-repeat: no-repeat;
+	}
+
 	background-color: $primary-color;
 	border-radius: 7px;
 	border: 2px solid $secondary-color;
@@ -29,5 +35,7 @@ body {
 
 	&:hover {
 		border-color: $accent-color;
+		background-color: $background-color;
+		cursor: pointer;
 	}
 }

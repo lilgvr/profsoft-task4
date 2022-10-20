@@ -1,20 +1,31 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import styles from "./assets/styles/App.module.scss";
 import { Header } from "./components/Header";
 import { useActions } from "./hooks";
 import { Dashboard } from "./pages/Dashboard";
 import { Todo } from "./pages/Todo";
 import { useGetTodosQuery } from "./store/todos/todos.api";
-import styles from "./assets/styles/App.module.scss";
+import { LS_KEY } from "./utils/constants";
 
 
 export const App = () => {
-    const { data: todos } = useGetTodosQuery()
-    const { setTodos } = useActions()
+    let { data: todos, isLoading, error } = useGetTodosQuery();
+    const { setTodos } = useActions();
 
     useEffect(() => {
-        setTodos(todos)
-    }, [setTodos, todos])
+        const storage = localStorage.getItem(LS_KEY);
+
+        if (storage) {
+            setTodos(JSON.parse(storage));
+            return;
+        }
+
+        if (!isLoading && !error) {
+            setTodos(todos);
+        }
+
+    }, [error, isLoading, setTodos, todos]);
 
     return (
         <div className={ styles.container }>

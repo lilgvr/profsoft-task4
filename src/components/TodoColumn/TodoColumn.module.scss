@@ -6,6 +6,7 @@
 	border-radius: 7px;
 	margin-top: 40px;
 	width: 20%;
+	height: 40vw;
 
 	&Header {
 		display: flex;
@@ -20,9 +21,11 @@
 
 	&Content {
 		overflow-y: auto;
+		word-wrap: break-word;
 		scroll-behavior: smooth;
 		min-height: 20vh;
-		max-height: 90%;
+		max-height: 80%;
+		padding-right: 20px;
 
 		&::-webkit-scrollbar {
 			width: 10px;
@@ -31,6 +34,51 @@
 		&::-webkit-scrollbar-thumb {
 			background-color: v.$background-color;
 			border-radius: 7px;
+		}
+	}
+
+	&Input {
+		color: v.$background-color;
+		font-size: 14pt;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+
+		label {
+			margin-right: 20px;
+		}
+
+		input {
+			font-size: 14pt;
+			border: 2px solid v.$background-color;
+			border-radius: 5px;
+
+			transition: border-color .1s linear;
+
+			&:focus {
+				outline: none;
+				border-color: v.$accent-color;
+			}
+		}
+
+		button {
+			background-color: v.$primary-color;
+			font-size: 14pt;
+			border: 2px solid v.$background-color;
+			border-radius: 5px;
+			padding: 2px;
+			transition: border-color .1s linear, color .1s linear, background-color .1s linear;
+
+			&:hover {
+				cursor: pointer;
+				background-color: v.$background-color;
+				color: v.$accent-color;
+				border-color: v.$accent-color;
+			}
+		}
+
+		&Hidden {
+			display: none;
 		}
 	}
 }

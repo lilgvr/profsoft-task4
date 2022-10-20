@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { apiUrl } from "../../utils/constants";
+import { API_URL } from "../../utils/constants";
 import { fromResponseDto } from "../../utils/helpers";
 
 const todosApiPOptions = {
     reducerPath: 'todos/api',
     baseQuery: fetchBaseQuery({
-        baseUrl: apiUrl,
+        baseUrl: API_URL,
     }),
 }
 

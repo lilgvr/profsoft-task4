@@ -3,5 +3,17 @@
 .todoItem {
 	display: flex;
 	justify-content: space-between;
-	background-color: v.$primary-color;
+	align-items: center;
+	background-color: v.$white;
+	border-radius: 5px;
+	padding: 0 10px;
+	margin-bottom: 10px;
+
+	a {
+		color: v.$background-color;
+		text-decoration: none;
+		display: block;
+		min-height: 100%;
+		width: 80%;
+	}
 }

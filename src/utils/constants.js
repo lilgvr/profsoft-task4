@@ -4,4 +4,6 @@ export const TODO_STATUS_TYPES = {
   done: 'Done'
 }
 
-export const apiUrl = 'https://jsonplaceholder.typicode.com';
+export const API_URL = 'https://jsonplaceholder.typicode.com';
+
+export const LS_KEY = 'kanban/todos';

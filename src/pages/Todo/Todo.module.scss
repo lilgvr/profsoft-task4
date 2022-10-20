@@ -1,1 +1,41 @@
 @use "../../assets/styles/index" as v;
+
+.todo {
+
+	display: flex;
+	width: 40%;
+	height: 800px;
+	background-color: v.$primary-color;
+	border-radius: 7px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 40px auto auto auto;
+
+	&Header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		h3 {
+			font-weight: 700;
+			font-size: 24pt;
+			margin: 0 0 10px 60px;
+			align-self: flex-start;
+			color: v.$background-color;
+		}
+	}
+
+	&Content {
+		background-color: v.$white;
+		width: 90%;
+		height: 90%;
+		border-radius: 7px;
+
+		p {
+			font-size: 18pt;
+			margin: 20px 0 0 30px;
+			font-weight: 600;
+		}
+	}
+}

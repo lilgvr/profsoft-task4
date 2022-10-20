@@ -1,4 +1,4 @@
-import HomeButton from "./HomeButton/HomeButton";
+import { HomeButton } from "./HomeButton";
 import styles from "./Header.module.scss";
 
 export const Header = () => {

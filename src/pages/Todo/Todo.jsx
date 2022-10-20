@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import styles from "./Todo.module.scss";
 
 export const Todo = () => {
-    const { id } = useParams()
-    const { todos } = useSelector(state => state.todos)
-    const [todo, setTodo] = useState()
-    const [isEditing, setIsEditing] = useState();
+    const { todos } = useSelector(state => state.todos);
+    const [currentTodo, setCurrentTodo] = useState();
+    const { id } = useParams();
 
     useEffect(() => {
-        if (todos && todos.length) {
-            const todo = todos.find(todo => todo.id === +id)
-            setTodo(todo)
-        }
-    }, [id, todos])
+        setCurrentTodo(todos?.find(todo => todo.id === +id));
+    }, [id, todos]);
 
     return (
-        <div>
+        <div className={ styles.todo }>
+            <div className={ styles.todoHeader }>
+                <h3>Todo { id }</h3>
+            </div>
+            {
+                currentTodo &&
+                <div className={ styles.todoContent }>
 
+                </div>
+            }
         </div>
     )
 }

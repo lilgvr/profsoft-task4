@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { LS_KEY } from "../../utils/constants";
 
 const initialState = {
     todos: [],
@@ -10,15 +11,19 @@ const todosSlice = createSlice({
     reducers: {
         setTodos: (state, action) => {
             state.todos = action.payload;
-            localStorage.setItem("kanban/todos", JSON.stringify(state.todos));
+            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-            localStorage.setItem("kanban/todos", JSON.stringify(state.todos));
+            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
         addTodo: (state, action) => {
             state.todos.push(action.payload);
-            localStorage.setItem("kanban/todos", JSON.stringify(state.todos));
+            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+        },
+        updateTodo: (state, action) => {
+            state.todos = state.todos.filter(todo => todo.id === action.payload.id).push(action.payload);
+            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
     },
 })
