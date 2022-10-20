@@ -23,6 +23,11 @@ const todosSlice = createSlice({
             state.todos.splice(index, 0, action.payload);
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
         },
+        dragTodo: (state, action) => {
+            state.todos = state.todos.filter(todo => todo.id !== +action.payload.id);
+            state.todos.push(action.payload);
+            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+        },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== +action.payload);
             localStorage.setItem(LS_KEY, JSON.stringify(state.todos));

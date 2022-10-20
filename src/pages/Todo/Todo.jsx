@@ -57,7 +57,7 @@ export const Todo = () => {
         <div className={ styles.todo }>
             <div className={ styles.todoHeader }>
                 <h3>
-                    Todo { id }
+                    { currentTodo?.title }
                 </h3>
 
                 <div>

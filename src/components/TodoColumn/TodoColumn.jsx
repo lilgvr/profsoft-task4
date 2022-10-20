@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { useActions } from "../../hooks";
+import { DND_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./TodoColumn.module.scss";
 
@@ -9,7 +11,18 @@ export const TodoColumn = ({ status, children }) => {
     const [isAdding, setIsAdding] = useState(false);
     const inputCtr = useRef(null);
     const inputRef = useRef(null);
-    const { addTodo } = useActions();
+    const { addTodo, updateTodo } = useActions();
+
+    const [{ isOver, canDrop }, drop] = useDrop(() => ({
+        accept: DND_TYPES.TODO,
+        drop: () => ({
+            name: status,
+        }),
+        collect: monitor => ({
+            isOver: !!monitor.isOver(),
+            canDrop: !!monitor.canDrop(),
+        }),
+    }))
 
     const handleAddButtonClick = () => {
         setIsAdding(!isAdding);
@@ -35,7 +48,10 @@ export const TodoColumn = ({ status, children }) => {
     }, [isAdding]);
 
     return (
-        <div className={ styles.todoColumn }>
+        <div
+            className={ styles.todoColumn }
+            ref={ drop }
+        >
             <div className={ styles.todoColumnHeader }>
                 <h3>
                     { status }

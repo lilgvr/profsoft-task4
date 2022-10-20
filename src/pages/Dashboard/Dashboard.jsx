@@ -1,4 +1,6 @@
 import { useCallback, useMemo } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { useSelector } from "react-redux";
 import { TodoColumn } from "../../components/TodoColumn";
 import { TodoItem } from "../../components/TodoItem";
@@ -32,7 +34,9 @@ export const Dashboard = () => {
 
     return (
         <div className={ styles.dashboard }>
-            { columns }
+            <DndProvider backend={ HTML5Backend }>
+                { columns }
+            </DndProvider>
         </div>
     )
 }

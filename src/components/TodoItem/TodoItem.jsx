@@ -1,10 +1,25 @@
+import { useDrag } from "react-dnd";
 import { Link } from "react-router-dom";
 import { useActions } from "../../hooks";
+import { DND_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./TodoItem.module.scss";
 
 export const TodoItem = ({ id, title }) => {
-    const { removeTodo } = useActions();
+    const { removeTodo, dragTodo } = useActions();
+
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: DND_TYPES.TODO,
+        collect: monitor => ({
+            isDragging: !!monitor.isDragging(),
+        }),
+        end: (item, monitor) => {
+            const dropResult = monitor.getDropResult();
+            if (dropResult) dragTodo({
+                id, title, status: dropResult.name,
+            })
+        },
+    }));
 
     const handleClick = () => {
         removeTodo(id);
@@ -12,7 +27,8 @@ export const TodoItem = ({ id, title }) => {
 
     return (
         <div
-            className={ styles.todoItem }
+            className={ isDragging ? styles.todoItemDraggable : styles.todoItem }
+            ref={ drag }
         >
             <Link
                 to={ `todo/${ id }` }
