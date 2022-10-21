@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LS_KEY } from "../../utils/constants";
+import { LOCAL_STORAGE_KEY as storageKey } from "../../utils/constants";
 
 const initialState = {
     todos: [],
@@ -11,26 +11,31 @@ const todosSlice = createSlice({
     reducers: {
         setTodos: (state, action) => {
             state.todos = action.payload;
-            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+
+            localStorage.setItem(storageKey, JSON.stringify(state.todos));
         },
         addTodo: (state, action) => {
             state.todos.push(action.payload);
-            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+
+            localStorage.setItem(storageKey, JSON.stringify(state.todos));
         },
         updateTodo: (state, action) => {
             const index = state.todos.findIndex(todo => todo.id === +action.payload.id);
             state.todos = state.todos.filter(todo => todo.id !== +action.payload.id);
             state.todos.splice(index, 0, action.payload);
-            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+
+            localStorage.setItem(storageKey, JSON.stringify(state.todos));
         },
         dragTodo: (state, action) => {
             state.todos = state.todos.filter(todo => todo.id !== +action.payload.id);
             state.todos.push(action.payload);
-            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+
+            localStorage.setItem(storageKey, JSON.stringify(state.todos));
         },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== +action.payload);
-            localStorage.setItem(LS_KEY, JSON.stringify(state.todos));
+
+            localStorage.setItem(storageKey, JSON.stringify(state.todos));
         },
     },
 })

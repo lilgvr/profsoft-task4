@@ -11,9 +11,9 @@ export const TodoColumn = ({ status, children }) => {
     const [isAdding, setIsAdding] = useState(false);
     const inputCtr = useRef(null);
     const inputRef = useRef(null);
-    const { addTodo, updateTodo } = useActions();
+    const { addTodo } = useActions();
 
-    const [{ isOver, canDrop }, drop] = useDrop(() => ({
+    const [, drop] = useDrop(() => ({
         accept: DND_TYPES.TODO,
         drop: () => ({
             name: status,

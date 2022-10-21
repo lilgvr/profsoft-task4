@@ -6,7 +6,7 @@ import { useActions } from "./hooks";
 import { Dashboard } from "./pages/Dashboard";
 import { Todo } from "./pages/Todo";
 import { useGetTodosQuery } from "./store/todos/todos.api";
-import { LS_KEY } from "./utils/constants";
+import { LOCAL_STORAGE_KEY as storageKey } from "./utils/constants";
 
 
 export const App = () => {
@@ -14,7 +14,7 @@ export const App = () => {
     const { setTodos } = useActions();
 
     useEffect(() => {
-        const storage = localStorage.getItem(LS_KEY);
+        const storage = localStorage.getItem(storageKey);
 
         if (storage) {
             setTodos(JSON.parse(storage));

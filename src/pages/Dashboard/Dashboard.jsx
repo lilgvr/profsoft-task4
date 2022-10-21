@@ -18,6 +18,7 @@ export const Dashboard = () => {
                     key={ todo.id }
                     id={ todo.id }
                     title={ todo.title }
+                    status={ todo.status }
                 />,
         ),
         [todos],

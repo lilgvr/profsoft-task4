@@ -6,7 +6,7 @@ export const TODO_STATUS_TYPES = {
 
 export const API_URL = 'https://jsonplaceholder.typicode.com';
 
-export const LS_KEY = 'kanban/todos';
+export const LOCAL_STORAGE_KEY = 'kanban/todos';
 
 export const DND_TYPES = {
     TODO: 'todo',

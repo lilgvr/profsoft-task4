@@ -5,7 +5,7 @@ import { DND_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./TodoItem.module.scss";
 
-export const TodoItem = ({ id, title }) => {
+export const TodoItem = ({ id, title, status }) => {
     const { removeTodo, dragTodo } = useActions();
 
     const [{ isDragging }, drag] = useDrag(() => ({
@@ -15,6 +15,8 @@ export const TodoItem = ({ id, title }) => {
         }),
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
+            if (dropResult.name === status) return;
+
             if (dropResult) dragTodo({
                 id, title, status: dropResult.name,
             })
