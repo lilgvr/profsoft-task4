@@ -1,11 +1,12 @@
 @use "../../assets/styles/index" as v;
 
 .button {
-	$wh: 40px;
+	$wh: 2vw;
 	width: $wh;
 	height: $wh;
 
-	max-height: 40px;
+	max-height: $wh;
+	max-width: $wh;
 
 	* {
 		mask-repeat: no-repeat;

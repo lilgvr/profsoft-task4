@@ -15,7 +15,7 @@ export const TodoItem = ({ id, title, status }) => {
         }),
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
-            if (dropResult.name === status) return;
+            if (dropResult?.name === status) return;
 
             if (dropResult) dragTodo({
                 id, title, status: dropResult.name,

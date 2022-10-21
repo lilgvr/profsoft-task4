@@ -47,6 +47,11 @@ export const TodoColumn = ({ status, children }) => {
         if (isAdding) inputRef.current.focus();
     }, [isAdding]);
 
+    /*const contentBlockClasses = {
+     [styles.todoColumnContent]: true,
+     [styles.todoColumnContentAdding]: isAdding,
+     }*/
+
     return (
         <div
             className={ styles.todoColumn }
@@ -84,7 +89,7 @@ export const TodoColumn = ({ status, children }) => {
                     Add
                 </button>
             </div>
-            <div className={ styles.todoColumnContent }>
+            <div className={ `${ styles.todoColumnContent } ${ isAdding ? styles.todoColumnContentAdding : '' }` }>
                 { children }
             </div>
         </div>
