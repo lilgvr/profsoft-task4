@@ -29,7 +29,7 @@ export const App = () => {
 
     return (
         <div className={ styles.container }>
-            <Header/>
+            <Header initialTodos={ todos }/>
             <Routes>
                 <Route path="/" element={ <Dashboard/> }/>
                 <Route path="/todo/:id" element={ <Todo/> }/>

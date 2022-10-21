@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDrop } from "react-dnd";
 import { useSelector } from "react-redux";
 import { useActions } from "../../hooks";
-import { DND_TYPES } from "../../utils/constants";
+import { BUTTON_TYPES, DND_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./TodoColumn.module.scss";
 
@@ -47,11 +47,6 @@ export const TodoColumn = ({ status, children }) => {
         if (isAdding) inputRef.current.focus();
     }, [isAdding]);
 
-    /*const contentBlockClasses = {
-     [styles.todoColumnContent]: true,
-     [styles.todoColumnContentAdding]: isAdding,
-     }*/
-
     return (
         <div
             className={ styles.todoColumn }
@@ -65,7 +60,7 @@ export const TodoColumn = ({ status, children }) => {
                 <Button
                     imageName="plus"
                     onClick={ handleAddButtonClick }
-                    type="DEFAULT"
+                    type={ BUTTON_TYPES.DEFAULT }
                 >
                     <div></div>
                 </Button>

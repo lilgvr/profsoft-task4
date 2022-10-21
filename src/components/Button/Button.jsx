@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { BUTTON_TYPES } from "../../utils/constants";
 import styles from "./Button.module.scss";
 
 export const Button = ({ imageName, onClick, type, style }) => {
@@ -22,14 +23,14 @@ export const Button = ({ imageName, onClick, type, style }) => {
         >
             <React.Suspense fallback={ null }>
                 {
-                    type === "LINK" &&
+                    type === BUTTON_TYPES.LINK &&
                     <Link
                         to="/"
                         style={ maskStyle }
                     />
                 }
                 {
-                    type === "DEFAULT" &&
+                    type === BUTTON_TYPES.DEFAULT &&
                     <div
                         style={ maskStyle }
                     ></div>

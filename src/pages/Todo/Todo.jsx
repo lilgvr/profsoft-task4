@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { useActions } from "../../hooks";
-import { TODO_STATUS_TYPES as statuses } from "../../utils/constants";
+import { BUTTON_TYPES, TODO_STATUS_TYPES as statuses } from "../../utils/constants";
 import styles from "./Todo.module.scss";
 
 export const Todo = () => {
@@ -63,12 +63,12 @@ export const Todo = () => {
                 <div>
                     <Button
                         imageName="edit"
-                        type="DEFAULT"
+                        type={ BUTTON_TYPES.DEFAULT }
                         onClick={ handleEditClick }
                     />
                     <Button
                         imageName="remove"
-                        type="DEFAULT"
+                        type={ BUTTON_TYPES.DEFAULT }
                         onClick={ handleRemoveClick }
                     />
                 </div>

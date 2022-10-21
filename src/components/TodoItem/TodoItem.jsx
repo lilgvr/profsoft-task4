@@ -1,7 +1,7 @@
 import { useDrag } from "react-dnd";
 import { Link } from "react-router-dom";
 import { useActions } from "../../hooks";
-import { DND_TYPES } from "../../utils/constants";
+import { BUTTON_TYPES, DND_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./TodoItem.module.scss";
 
@@ -42,7 +42,7 @@ export const TodoItem = ({ id, title, status }) => {
             <Button
                 imageName="remove"
                 onClick={ handleClick }
-                type="DEFAULT"
+                type={ BUTTON_TYPES.DEFAULT }
                 style={ {
                     width: '30px', height: '30px', margin: '20px 0',
                 } }
