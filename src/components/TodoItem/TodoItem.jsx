@@ -41,6 +41,7 @@ export const TodoItem = ({ id, title, status }) => {
 
             <Button
                 imageName="remove"
+                title="Remove"
                 onClick={ handleClick }
                 type={ BUTTON_TYPES.DEFAULT }
                 style={ {

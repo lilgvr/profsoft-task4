@@ -65,11 +65,13 @@ export const Todo = () => {
                         imageName="edit"
                         type={ BUTTON_TYPES.DEFAULT }
                         onClick={ handleEditClick }
+                        title="Edit"
                     />
                     <Button
                         imageName="remove"
                         type={ BUTTON_TYPES.DEFAULT }
                         onClick={ handleRemoveClick }
+                        title="Remove"
                     />
                 </div>
 

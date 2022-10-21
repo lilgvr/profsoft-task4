@@ -24,6 +24,10 @@ export const TodoColumn = ({ status, children }) => {
         }),
     }))
 
+    useEffect(() => {
+        if (isAdding) inputRef.current.focus();
+    }, [isAdding]);
+
     const handleAddButtonClick = () => {
         setIsAdding(!isAdding);
         inputRef.current.value = '';
@@ -43,10 +47,6 @@ export const TodoColumn = ({ status, children }) => {
         addTodo(payload);
     }
 
-    useEffect(() => {
-        if (isAdding) inputRef.current.focus();
-    }, [isAdding]);
-
     return (
         <div
             className={ styles.todoColumn }
@@ -61,6 +61,7 @@ export const TodoColumn = ({ status, children }) => {
                     imageName="plus"
                     onClick={ handleAddButtonClick }
                     type={ BUTTON_TYPES.DEFAULT }
+                    title="Add todo"
                 >
                     <div></div>
                 </Button>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BUTTON_TYPES } from "../../utils/constants";
 import styles from "./Button.module.scss";
 
-export const Button = ({ imageName, onClick, type, style }) => {
+export const Button = ({ imageName, onClick, type, style, title }) => {
     const [maskStyle, setMaskStyle] = useState({});
 
     useEffect(() => {
@@ -20,6 +20,7 @@ export const Button = ({ imageName, onClick, type, style }) => {
             className={ styles.button }
             onClick={ onClick }
             style={ style }
+            title={ title }
         >
             <React.Suspense fallback={ null }>
                 {

@@ -17,12 +17,14 @@ export const Header = ({ initialTodos }) => {
             <Button
                 imageName="home"
                 type={ BUTTON_TYPES.LINK }
+                title="Home"
             />
             <h1>Kanban</h1>
             <Button
                 imageName="reload"
                 type={ BUTTON_TYPES.DEFAULT }
                 onClick={ handleReloadClick }
+                title="Refetch todos"
             />
         </header>
     );
