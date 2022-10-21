@@ -11,3 +11,8 @@ export const LOCAL_STORAGE_KEY = 'kanban/todos';
 export const DND_TYPES = {
     TODO: 'todo',
 }
+
+export const BUTTON_TYPES = {
+    LINK: 'LINK',
+    DEFAULT: 'DEFAULT',
+}

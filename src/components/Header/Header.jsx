@@ -1,4 +1,5 @@
 import React from "react";
+import { BUTTON_TYPES } from "../../utils/constants";
 import { Button } from "../Button";
 import styles from "./Header.module.scss";
 
@@ -7,7 +8,7 @@ export const Header = () => {
         <header className={ styles.header }>
             <Button
                 imageName="home"
-                type="LINK"
+                type={ BUTTON_TYPES.LINK }
             />
             <h1>Kanban</h1>
             &nbsp;
