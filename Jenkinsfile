@@ -6,6 +6,7 @@ pipeline {
 
     environment {
         BUILD_NUMBER = env.BUILD_NUMBER.toString()
+        GIT_REPO = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
 
     stages {
@@ -18,23 +19,25 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
-                shell "npm install"
+                dir(GIT_REPO){
+                    shell "npm install"
+                }
             }
         }
 
         stage('Build'){
             steps {
-                shell "npm run build"
+                dir(GIT_REPO){
+                    shell "npm run build"
+                }
             }
         }
 
         stage('Deploy'){
             steps {
-//                 dir('build'){
-//                     bat ""
-//                 }
-
-                shell "npm run start"
+                dir(GIT_REPO){
+                    shell "npm run start"
+                }
             }
         }
     }
