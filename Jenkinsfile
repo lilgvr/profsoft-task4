@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node{
+            label: 'main'
+        }
+    }
     options {
         skipDefaultCheckout()
     }
@@ -19,23 +23,31 @@ pipeline {
         stage('Install dependencies'){
             steps{
                 echo "Installing dependencies..."
-                shell "cd profsoft-task-4 && npm install"
+                shell "npm install"
             }
         }
 
         stage('Build'){
             steps {
                 echo "Building..."
-                shell "cd profsoft-task-4 && npm run build"
+                shell "npm run build"
             }
         }
 
         stage('Deploy'){
             steps {
-                dir('profsoft-task-4'){
-                    shell "npm run start"
-                }
+                 shell "npm run start"
             }
+        }
+    }
+
+    post{
+        always{
+            cleanWs()
+        }
+
+        success {
+            echo "Build succeed"
         }
     }
 }
