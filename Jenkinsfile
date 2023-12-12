@@ -18,13 +18,14 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
-                shell "echo 123"
+                echo "Installing dependencies..."
                 shell "cd profsoft-task-4 && npm install"
             }
         }
 
         stage('Build'){
             steps {
+                echo "Building..."
                 shell "cd profsoft-task-4 && npm run build"
             }
         }
