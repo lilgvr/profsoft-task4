@@ -18,13 +18,13 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
-                sh "npm install"
+                shell "npm install"
             }
         }
 
         stage('Build'){
             steps {
-                sh "npm run build"
+                shell "npm run build"
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
 //                     bat ""
 //                 }
 
-                sh "npm run start"
+                shell "npm run start"
             }
         }
     }
