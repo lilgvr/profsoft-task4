@@ -6,7 +6,7 @@ pipeline {
 
     environment {
         BUILD_NUMBER = env.BUILD_NUMBER.toString()
-        GIT_REPO = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+//         GIT_REPO = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
-                dir(GIT_REPO){
+                dir('./profsoft-task-4'){
                     shell "npm install"
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build'){
             steps {
-                dir(GIT_REPO){
+                dir('./profsoft-task-4'){
                     shell "npm run build"
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-                dir(GIT_REPO){
+                dir('./profsoft-task-4'){
                     shell "npm run start"
                 }
             }
