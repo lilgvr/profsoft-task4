@@ -18,17 +18,13 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
-                dir('profsoft-task-4'){
-                    shell "npm install"
-                }
+                shell "cd profsoft-task-4 && npm install"
             }
         }
 
         stage('Build'){
             steps {
-                dir('profsoft-task-4'){
-                    shell "npm run build"
-                }
+                shell "cd profsoft-task-4 && npm run build"
             }
         }
 
