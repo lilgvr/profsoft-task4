@@ -18,6 +18,7 @@ pipeline {
 
         stage('Install dependencies'){
             steps{
+                shell "where npm"
                 shell "cd profsoft-task-4 && npm install"
             }
         }
