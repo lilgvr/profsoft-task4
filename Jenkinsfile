@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        node{
-            label: 'main'
-        }
-    }
+    agent any
+
     options {
         skipDefaultCheckout()
     }
